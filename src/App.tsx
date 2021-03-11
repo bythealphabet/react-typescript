@@ -1,7 +1,12 @@
 import React from "react";
 
-function App(props) {
-  return <h1>BYTHEALPHABET REACT TEMPLATE</h1>;
+function App() {
+	return (
+		<h1>
+			BYTHEALPHABET TypeScript REACT TEMPLATE{" "}
+			{new Date().toLocaleDateString()}
+		</h1>
+	);
 }
 
 export default App;

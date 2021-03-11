@@ -3,6 +3,8 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const { merge } = require("webpack-merge");
 const modeConfig = (env) => require(`./build-utils/webpack.${env}`)(env);
 const presetConfig = require("./build-utils/loadPresets");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+const ESLintPlugin = require("eslint-webpack-plugin");
 
 module.exports = (env = {}) => {
   const { mode = "production", presets = [] } = env;
@@ -39,6 +41,12 @@ module.exports = (env = {}) => {
           template: "./public/index.html",
         }),
         new CleanWebpackPlugin(),
+        new ForkTsCheckerWebpackPlugin({
+          async: false,
+        }),
+        new ESLintPlugin({
+          extensions: ["js", "jsx", "ts", "tsx"],
+        }),
       ],
     },
     modeConfig(mode),
