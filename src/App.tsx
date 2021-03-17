@@ -1,11 +1,14 @@
 import React from "react";
 
-function App() {
+function Heading({ title }: { title: string }) {
+	return <h1>{title}</h1>;
+}
+
+function App(): JSX.Element {
 	return (
-		<h1>
-			BYTHEALPHABET TypeScript REACT TEMPLATE{" "}
-			{new Date().toLocaleDateString()}
-		</h1>
+		<div>
+			<Heading title={"Great"} />
+		</div>
 	);
 }
 
